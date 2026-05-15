@@ -1,0 +1,256 @@
+:root {
+  --bg: #f4efe6;
+  --paper: #fbf8f1;
+  --ink: #1f2a2a;
+  --muted: #485554;
+  --accent: #ca5f37;
+  --accent-dark: #8c3d21;
+  --line: rgba(31, 42, 42, 0.18);
+  --shadow: 0 18px 42px rgba(29, 24, 19, 0.14);
+  --nav-height: 4.4rem;
+  --content-max: 72rem;
+  --radius: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 0.9rem);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 650px at 95% -10%, #f5c9a8 0%, transparent 55%),
+    radial-gradient(900px 600px at -5% 30%, #d7e4dd 0%, transparent 52%),
+    var(--bg);
+  font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1,
+h2,
+.brand {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  line-height: 1.1;
+}
+
+p,
+li {
+  max-width: 66ch;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -100%;
+  z-index: 1000;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.45rem;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  top: 0.75rem;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.navbar {
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: var(--content-max);
+  background: color-mix(in srgb, var(--paper) 88%, white 12%);
+  border: 1px solid color-mix(in srgb, var(--line) 70%, transparent 30%);
+  border-top: 0;
+  border-radius: 0 0 0.8rem 0.8rem;
+  backdrop-filter: blur(6px);
+}
+
+.brand {
+  color: var(--ink);
+  font-size: 1.1rem;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.7rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.91rem;
+  font-weight: 600;
+  padding: 0.35rem 0.55rem;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  background: color-mix(in srgb, var(--accent) 18%, white 82%);
+  outline: none;
+}
+
+.panel {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-height) + 1.15rem) 1rem 1.25rem;
+}
+
+.section-shell {
+  width: min(100%, var(--content-max));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+  align-items: center;
+}
+
+.section-copy {
+  background: color-mix(in srgb, var(--paper) 92%, white 8%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.15rem;
+  box-shadow: var(--shadow);
+}
+
+.section-copy h1 {
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  margin: 0 0 0.8rem;
+}
+
+.section-copy h2 {
+  font-size: clamp(1.6rem, 5.6vw, 2.5rem);
+  margin: 0 0 0.75rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 0.6rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(130deg, var(--accent), var(--accent-dark));
+  padding: 0.66rem 0.95rem;
+  border-radius: 999px;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  filter: brightness(1.03);
+  outline: 2px solid color-mix(in srgb, var(--accent-dark) 70%, black 30%);
+  outline-offset: 2px;
+}
+
+.section-media {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  min-height: 18.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+
+.section-copy ul {
+  margin-top: 0.45rem;
+  margin-bottom: 0.35rem;
+  padding-left: 1.1rem;
+}
+
+.show-list strong {
+  color: var(--accent-dark);
+}
+
+@media (min-width: 48rem) {
+  .navbar {
+    padding-inline: 1.35rem;
+  }
+
+  .nav-links {
+    gap: 0.95rem;
+  }
+
+  .panel {
+    padding-inline: 1.4rem;
+  }
+
+  .section-shell {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 1.65rem;
+  }
+
+  .panel:nth-of-type(even) .section-copy {
+    order: 2;
+  }
+
+  .panel:nth-of-type(even) .section-media {
+    order: 1;
+  }
+
+  .section-copy {
+    padding: 1.45rem;
+  }
+
+  .section-media {
+    min-height: 25rem;
+  }
+}
+
+@media (min-width: 70rem) {
+  :root {
+    --nav-height: 4.8rem;
+  }
+
+  .panel {
+    padding-bottom: 1.6rem;
+  }
+
+  .section-media {
+    min-height: 30rem;
+  }
+}
